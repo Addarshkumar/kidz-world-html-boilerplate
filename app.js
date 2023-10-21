@@ -107,10 +107,10 @@ for (let i = 0; i < btn.length; i++) {
   function updatePrice() {
     let totalPriceInCents = 0;
   
-    for (index = 0; index < list.length; index++) {
+    for (i = 0; i < list.length; i++) {
       totalPriceInCents =
         totalPriceInCents +
-        list[index].quantity * (list[index].dollars * 100 + list[index].cents);
+        list[i].quantity * (list[i].dollars * 100 + list[i].cents);
     }
     finalDollars = Math.floor(totalPriceInCents / 100);
     finalCents = totalPriceInCents % 100;
@@ -120,18 +120,28 @@ for (let i = 0; i < btn.length; i++) {
 
 function finalOutput(){
     updatePrice()
+    text="";
+    
     for(var i=0;i<list.length;i++){
         if(list[i].quantity!== 0){
             console.log("Item name: " +
             list[i].name +
             " - Quantity: " +
             list[i].quantity
-            
-            
             )
+            text+="Item name: " +
+            list[i].name +
+            " - Quantity: " +
+            list[i].quantity
         }
+       
     }
     console.log(
         "The total amount is " + finalDollars + "$ and " + finalCents + " cents"
       );
+
+      text+= "The total amount is " + finalDollars + "$ and " + finalCents + " cents"
+      window.open("https://wa.me/9234440694?text="+text)
+
+
 }
